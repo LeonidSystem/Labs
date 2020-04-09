@@ -1,5 +1,5 @@
 	//4, 5
-  class List *new_list (T value) {
+  	class List *new_list (T value) {
 	    List *ls = new List;
 	    bool f = true;
 	    for (Item* t = first; t != nullptr; t = t->next)  {
