@@ -4,7 +4,7 @@
 #include <queue>
 #include <stack>
 
-#define FN 5        //размер SimpleVector
+#define FN 25        
 
 using namespace std;
 
@@ -18,8 +18,7 @@ queue <int>qt;
 stack <int> st;
 
 int main() {
-    for (int i=0; i<FN; i++) 
-        for (int j=0; j<FN; j++) {
+    for (int i=0; i<FN; i++)  {
             fin>>dig;
             if (!(dig%3))
                 qt.push(dig);
