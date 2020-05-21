@@ -6,6 +6,9 @@ using namespace std;
 
 #define N 5
 
+ifstream fin("input.txt");
+ofstream fout("output.txt");
+
 class Socks {
     private:
         struct socks {
@@ -14,16 +17,21 @@ class Socks {
             bool warm;          //шерстяные(1) или обычные(0)
         };
         socks *arr = new struct socks [N];
-        end_socks = 0;
+        int end_socks = 0;
     public:
-        static counter1, counter2;  //счётчики для шерстяных и обычных
-        Socks() : color(0), maker(0), size(0), warm(0) {};
+        static int counter1, counter2;  //счётчики для шерстяных и обычных
+        
+        struct socks operator[] (int index) {
+            return arr[index];
+        };
+        
+        Socks() {};
         
         int SocksSize() {
             return end_socks;
-        }
+        };
         
-        void SocksInfo(int index) {
+        void SocksInfo(int i) {
             fout<<arr[i].color<<" "<<arr[i].maker<<" "<<arr[i].size<<" "<<arr[i].warm<<endl;
         };
         
@@ -36,27 +44,27 @@ class Socks {
         };
         
         bool operator== (class Socks sc1) {
-            if (end_vector!=sc1.SocksSize())
+            if (end_socks!=sc1.SocksSize())
                 return false;
-            for (int i=0; i<end_vector; i++)
-                if (maker!=sc1.maker)
+            for (int i=0; i<end_socks; i++)
+                if (arr[i].maker!=sc1[i].maker)
                     return false;
-                else if (warm!=sc1.warm)
+                else if (arr[i].warm!=sc1[i].warm)
                     return false;
-                else if (size!=sc1.size)
+                else if (arr[i].size!=sc1[i].size)
                     return false;
             return true;
         };
         
         bool operator>= (class Socks sc1) {
-            if (end_vector<sc1.SocksSize())
+            if (end_socks<sc1.SocksSize())
                 return false;
-            for (int i=0; i<end_vector; i++)
-                if (maker<sc1.maker)
+            for (int i=0; i<end_socks; i++)
+                if (arr[i].maker<sc1[i].maker)
                     return false;
-                else if (warm<sc1.warm)
+                else if (arr[i].warm<sc1[i].warm)
                     return false;
-                else if (size<sc1.size)
+                else if (arr[i].size<sc1[i].size)
                     return false;
                 return true;
         };
