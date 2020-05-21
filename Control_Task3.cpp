@@ -22,14 +22,14 @@ int main() {
     for (int i=1; i<N; i++) {
         fin>>str;
         q.push(str);
-        if (str.size()>lsize())
+        if (str.size()>lsize)
             lsize = str.size();
         if (str.size()<shsize)
             shsize = str.size();
     };
     
     while(!(q.empty())) {
-        if (q.front()>shsize && q.front()<lsize)
+        if (q.front().size()>shsize && q.front().size()<lsize)
             qminmax.push(q.front());
         else
             qrest.push(q.front());
