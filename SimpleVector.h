@@ -144,3 +144,17 @@ class SimpleVector {
         //    free(arr);
         //};
 };
+
+static bool Comparator(SimpleVector <int> sp1, SimpleVector <int> sp2) {
+        for (int i=0; i<std::min(sp1.spvsize(), sp2.spvsize()); i++) {
+                if (sp1[i] < sp2[i]) 
+                    return true;
+                else if (sp1[i] > sp2[i])
+                    return false;
+            };
+        
+            if (sp1.spvsize() < sp2.spvsize())
+                return true;
+
+            return false;
+ };
