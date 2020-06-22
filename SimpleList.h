@@ -1,3 +1,4 @@
+//Implementations of Queue and SimpleList are similar
 template <typename T>
 class SimpleList {
     private:
