@@ -17,7 +17,8 @@ class SimpleList {
         };
         
         int find(T value) {
-            for (node *i = first, int j=0; i!=nullptr; j++, i = i->next)
+            int j=0;
+            for (node *i = first; i!=nullptr; j++, i = i->next)
                 if (i->val == value)
                     return j;
             return -1;        
@@ -25,7 +26,7 @@ class SimpleList {
         
         void Remove(T value) {
             for (node *i = first; i!=nullptr; i = i->next)
-                if (i->next->val == val) {
+                if (i->next->val == value) {
                     node *tmp = i->next;
                     i->next = i->next->next;
                     delete tmp;
